@@ -26,7 +26,7 @@
 }
 
 .nav-intro {
-    font-size: 30px;
+    font-size: clamp(18px, 4vw, 30px);
     color: #9c1a71;
     margin: 0;
 }
@@ -43,7 +43,7 @@
     text-decoration: none;
     color: #9c1a71;
     font-weight: bold;
-    font-size: 30px;
+    font-size: clamp(16px, 3vw, 30px);
 }
 
 /* Register Button */
@@ -98,7 +98,7 @@ div.register {
 
 /* Header Text */
 h1.register-intro {
-    font-size: 36px;
+    font-size: clamp(22px, 5vw, 36px);
     color: #d81fa5;
     margin-bottom: 12px;
     text-align: center;
@@ -120,14 +120,14 @@ p.register-desc {
 
 /* Form Labels & Inputs */
 form label {
-    font-size: 1.4rem;
+    font-size: clamp(1rem, 3vw, 1.4rem);
     color: #9c1a71;
     margin-bottom: 6px;
 }
 
 form input, form select {
     padding: 12px;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 3vw, 1.2rem);
     border: 2px solid #dca1cd;
     border-radius: 6px;
     margin-bottom: 20px;
@@ -149,7 +149,8 @@ form input[type="submit"] {
     cursor: pointer;
     padding: 12px;
     font-size: 1.2rem;
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     transition: all 0.3s ease;
 }
 
@@ -388,3 +389,64 @@ body.product-list{
 }
 
 
+/*TO ENSURE MOBILE RESPONSIVENESS*/
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .nav-logo {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    #register {
+        align-self: center;
+        width: 90%;
+        text-align: center;
+        font-size: 1rem;
+    }
+
+     div.register {
+        padding: 20px;
+    }
+
+    .register-container {
+        width: 100%;
+        padding: 25px;
+    }
+
+    .form-data {
+        gap: 10px;
+    }
+
+    form input,
+    form select {
+        width: 100%;
+    }
+
+    p.register-desc {
+        font-size: 1rem;
+    }
+}
