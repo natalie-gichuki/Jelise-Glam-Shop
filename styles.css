@@ -341,3 +341,50 @@ body.home{
         height: 180px;
     }
 }
+
+.product-list-title {
+    text-align: center;
+    font-size: 36px;
+    color: #d81fa5;
+    margin: 30px 0;
+}
+
+body.product-list{
+    background: linear-gradient(160deg, #fce4f3, #f5d0eb);
+    
+}
+
+.product-filter {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.product-filter input, .product-filter select {
+    padding: 10px;
+    font-size: 1.1rem;
+    border: 2px solid #dca1cd;
+    border-radius: 6px;
+    margin: 0 10px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-filter input:focus, .product-filter select:focus {
+    outline: none;
+    border-color: #ff33aa;
+    box-shadow: 0 0 8px rgba(255, 51, 170, 0.3);
+}
+
+/* Product List Grid */
+.product-list-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto 50px;
+}
+
+.product-list-page {
+    padding: 30px 20px;
+}
+
+
