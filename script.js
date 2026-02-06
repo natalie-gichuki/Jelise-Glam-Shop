@@ -1,5 +1,5 @@
 // Fetch navbar HTML and insert it into the page
-fetch('../HTML-pages/navbar.html')
+fetch('./navbar.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('navbar-loaded').innerHTML = data;
@@ -97,6 +97,7 @@ if (registerForm) {
 
         //clear form fields
         registerForm.reset();
+        resetCookieConsent();
     });
 }
 
@@ -122,3 +123,62 @@ function setCookie(name, value, days) {
     // Set the cookie by assigning a string to document.cookie
     document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/";
 }
+
+// Declare a function getCookie that takes one parameter: name(cookie name)
+function getCookie(name) {
+    // Split the document.cookie string into an array of individual cookies using ";" as the delimiter
+    let cookieArr = document.cookie.split(";");
+    // Loop through the array of cookies
+    for (let i = 0; i < cookieArr.length; i++) {
+        // Trim any leading or trailing whitespace from the cookie string and store it in cookiePair variable
+        let cookiePair = cookieArr[i].trim();
+        // Check if the cookie string starts with the specified name followed by an "=" character
+        if (cookiePair.startsWith(name + "=")) {
+            // If a match is found, decode the value of the cookie using decodeURIComponent and return it
+            return decodeURIComponent(cookiePair.substring(name.length + 1));
+        }
+    }
+    // If no matching cookie is found, return null
+    return null;
+}
+
+function acceptCookies() {
+    setCookie('cookies_accepted', 'true', 7);
+    document.getElementById('cookieNotice').style.display = 'none';
+}
+
+function rejectCookies() {
+    setCookie('cookies_accepted', 'false', 7);
+    document.getElementById('cookieNotice').style.display = 'none';
+}
+
+// Check cookie consent on page load
+window.onload = function () {
+    // Call the getCookie function to check if the user has already given consent for cookies
+
+    // If the consent variable is null (indicating that the user has not given consent), display the cookie notice by setting its display style to "block"
+    const cookieNotice = document.getElementById("cookieNotice");
+    if (cookieNotice) {
+        const consent = getCookie('cookies_accepted');
+        if (consent === null) {
+            cookieNotice.style.display = 'block';
+        } else {
+            cookieNotice.style.display = 'none';
+        }
+    }
+};
+
+
+function deleteCookie(name) {
+    document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
+
+function resetCookieConsent() {
+    deleteCookie("cookies_accepted");
+    const cookieNotice = document.getElementById("cookieNotice");
+    if (cookieNotice) {
+        cookieNotice.style.display = "block";
+    }
+}
+
+

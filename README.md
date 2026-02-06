@@ -58,6 +58,18 @@
 
 - Basic frontend validation helps reduce weak passwords and incorrect input supporting objectives of the *** COMPUTER MISUSE AND CYBERCRIMES ACT(2018) ***
 
+` 4. COOKIE ACCEPTANCE `
+- On page load, JavaScript checks whether a cookie consent value exists.
+If none is found, a cookie notice is displayed requesting user consent.
+The user’s choice is stored in a cookie with a limited lifespan in compliance
+with the Kenya Data Protection Act (2019) and ODPC guidelines.
+
+` 5. PRIVACY POLICY `
+- The website includes a Privacy Notice accessible from the footer and
+referenced during user registration to comply with the Kenya Data Protection
+Act (2019) and ODPC guidelines. User consent is obtained before collecting
+personal data, and cookies are disclosed transparently
+
 *** CONCLUSION ***
 This project demonstrates a basic but functional online marketplace frontend that is responsive, user-friendly, and compliant with Kenya’s digital laws and ethical standards. The design and implementation reflect responsible data handling and secure frontend development practices.
 
